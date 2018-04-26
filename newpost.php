@@ -22,7 +22,7 @@ if(isset($_POST['access'])) {
     exit;
   }
 }
-    echo "<div class="w3-container"><h2>New Post</h2></div>
+    echo "<div class="w3-container"><h2>New Post</h2></div>";
 	echo "<form action="" method="POST" class="w3-container">
 	<label>Title</label>
     <input type="text" name="title" class="w3-input w3-border" required>
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])) {
   $id = sanitize($_GET['id']);
   $title = sanitize($_POST['title']);
   $description = sanitize($_POST['description']);
-  $date = sanitize($_POST['date']);
+  $date = date("d M, Y");
 
 $sql = "INSERT INTO blog (id, title, description, date) VALUES($id, $title, $description, $date)";
 
