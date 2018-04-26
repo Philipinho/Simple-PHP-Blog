@@ -12,4 +12,15 @@ mysqli_select_db($dbname);
 
 mysqli_close($dbcon);
 
+
+
+// Sanitize function
+funtion sanitize($data) {
+$data = htmlspecialchars($data);
+$data = trim($data);
+$data = stripslashes($data);
+
+return $data;
+}
+
  ?>
