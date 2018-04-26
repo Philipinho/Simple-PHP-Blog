@@ -4,7 +4,7 @@ include('connect.php');
 
 // Protect page
 $user = "admin";
-$pin = "blabla";
+$pin = "12345";
 if(isset($_POST['access'])) {
   if(sanitize($user) == $user && sanitize($pin) == $pin) {
     echo "<script>alert("Access Granted")</script>";
@@ -18,9 +18,18 @@ if(isset($_POST['access'])) {
     <input type="text" name="user" class="w3-input w3-border" required>
     <label>Pin</label>
     <input type="text" name="pin" class="w3-input w3-border" required>
-    <input type="button" name="access" value="Access" class="w3-btn w3-teal w3-rounded">
-    
-
+    <input type="button" name="access" value="Access" class="w3-btn w3-teal w3-round">";
+    exit;
+  }
+}
+    echo "<div class="w3-container"><h2>New Post</h2></div>
+	echo "<form action="" method="POST" class="w3-container">
+	<label>Title</label>
+    <input type="text" name="title" class="w3-input w3-border" required>
+    <label>Description</label>
+    <input type="text" name="description" class="w3-input w3-border" required>
+    <input type="button" name="submit" value="Post" class="w3-btn w3-teal w3-round">";
+	
 
 if(isset($_POST['submit'])) {
   $id = sanitize($_GET['id']);
