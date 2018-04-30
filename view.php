@@ -3,15 +3,12 @@
 include("header.php");
 include("connect.php");
 
-
-
-$id = (INT) htmlspecialchars(htmlentities($_GET['id']));
+$id = (INT) $_GET['id'];
  if($id < 1) {
 header("location: index.php");
  } 
 
- $sql = "SELECT id, title, description, date FROM blog WHERE id = '$id'";
- mysqli_select_db($dbcon,'newblog');
+ $sql = "SELECT id, title, description, date FROM blog WHERE id = $id";
  
  $result = mysqli_query($dbcon, $sql);
  
@@ -41,7 +38,7 @@ echo "$time</div>";
 
  <div class="w3-text-green"><a href="edit.php?id=<?php echo $row['id'];?>">[Edit]</a></div>
 <div class="w3-text-red">
-<a href="del.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete this post?'); ">[Delete]</a></div> 
+<a href="delete.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to delete this post?'); ">[Delete]</a></div> 
 
 
 
