@@ -1,5 +1,5 @@
-<?php include("header.php");
-// include("connect.php");
+<?php include("header.php"); 
+include("connect.php");
 ?>
 
 <div class="w3-panel">
@@ -7,12 +7,12 @@
 </div>
 
 <?php
-include("connect.php");
+
 
 
 $sql = "SELECT id, title, description, date FROM blog ORDER by id DESC";
 
-mysqli_select_db($dbcon,'newblog');
+
 $result = mysqli_query($dbcon, $sql);
 
 if(mysqli_num_rows($result) < 1) {
@@ -36,11 +36,4 @@ echo "$time</div>";
 echo '</div>';
 
 }
-
-
-
-?>
-
-
-
-<?php include("footer.php");?>
+include("footer.php");?>
