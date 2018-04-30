@@ -1,26 +1,14 @@
 <?php
-$host = "localhost";
+$dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "simpleblog";
+$dbname = "newblog";
 
-$dbcon = mysqli_connect("$host, $dbuser, $dbpass);
+$dbcon = mysqli_connect($dbhost, $dbuser, $dbpass);
+
 if(!$dbcon) {
-die("Failed to connect". mysqli_connect_error());
+die("Connection failed". mysqli_connect_error());
 }
-mysqli_select_db($dbname);
+mysqli_select_db($dbcon,$dbname);
 
-mysqli_close($dbcon);
-
-
-
-// Sanitize function
-funtion sanitize($data) {
-$data = htmlspecialchars($data);
-$data = trim($data);
-$data = stripslashes($data);
-
-return $data;
-}
-
- ?>
+?> 
