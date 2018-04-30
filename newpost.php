@@ -8,7 +8,7 @@ include("connect.php");
 
 
 
-<form class="w3-container" action="<?php $_PHP_SELF ?>" method="POST">
+<form class="w3-container" action="" method="POST">
 <label>Title</label>
 
 <input type="text" class="w3-input w3-border" name="title" required>
@@ -23,7 +23,6 @@ include("connect.php");
 
 
 <?php
-include("connect.php");
 
 if(isset($_POST['submit'])) {
 
@@ -34,7 +33,6 @@ $date = date('Y-m-d H:i');
 
 
 $sql = "INSERT INTO blog (id, title, description, date) VALUES('$id', '$title', '$description', '$date')";
-mysqli_select_db($dbcon,'newblog');
 
 $query = mysqli_query($dbcon, $sql);
 if (!query) {
