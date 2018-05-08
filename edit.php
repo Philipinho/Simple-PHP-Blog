@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['username'])) {
+	header("location: login.php");
+	} 
 include("header.php");
 include("connect.php");
 
@@ -7,7 +11,7 @@ if($id < 1) {
 	header("location: index.php");
 }
 
-$sql = "SELECT * FROM blog WHERE id = '$id'";
+$sql = "SELECT * FROM posts WHERE id = '$id'";
 $result = mysqli_query($dbcon, $sql);
 if(mysqli_num_rows($result) ==0) {
 	header("location: index.php");
@@ -22,7 +26,7 @@ if(isset($_POST['upd'])) {
  $title = mysqli_real_escape_string($dbcon, $_POST['title']);
  $description = mysqli_real_escape_string($dbcon, $_POST['description']);
  
-	$sql2 = "UPDATE blog SET title = '$title', description = '$description' WHERE id = $id";
+	$sql2 = "UPDATE posts SET title = '$title', description = '$description' WHERE id = $id";
 
 if(mysqli_query($dbcon, $sql2)) {
 // or die("failed to edit. ". mysqli_connect_error());
@@ -31,7 +35,7 @@ if(mysqli_query($dbcon, $sql2)) {
 	
 	} 
 	else {
-		echo "failed to edit". mysqli_connect_error();
+		echo "failed to edit.". mysqli_connect_error();
 		}
 		}
 ?>
@@ -49,7 +53,7 @@ if(mysqli_query($dbcon, $sql2)) {
 
 
 <?php
-mysqli_close($dbcon);
 
+mysqli_close($dbcon);
 include("footer.php");
 ?>
