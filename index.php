@@ -10,7 +10,7 @@ include("connect.php");
 
 
 
-$sql = "SELECT id, title, description, date FROM blog ORDER by id DESC";
+$sql = "SELECT * FROM posts ORDER by id DESC";
 
 
 $result = mysqli_query($dbcon, $sql);
@@ -36,4 +36,5 @@ echo "$time</div>";
 echo '</div>';
 
 }
-include("footer.php");?>
+include("footer.php");
+?>
