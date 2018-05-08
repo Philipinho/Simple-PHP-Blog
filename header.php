@@ -1,7 +1,12 @@
+<?php
+session_start();
+?>
 <head>
 <title>PHP Blog</title>
 <meta name="viewport" content="width=device-width",initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
+<script src='tinymce/tinymce.min.js'></script>
+
 </head>
 
 <div class="w3-container w3-teal">
@@ -9,9 +14,15 @@
 </div>
 <div class="w3-bar w3-border">
 <a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a> 
-<a href="newpost.php" class="w3-bar-item w3-button">New Post</a>
+<?php 
+if($_SESSION['username' ]) {
+echo "<a href='new.php' class='w3-bar-item w3-btn'>New Post</a>";
+echo "<a href='admin.php' class='w3-bar-item w3-btn'>Admin Panel</a>";
+} 
+else {
+echo "<a href='login.php' class='w3-bar-item w3-pale-red' >Login</a>";
+}
+?> 
 </div>
 <body>
-
-
 
