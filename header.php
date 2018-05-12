@@ -1,17 +1,20 @@
 <?php
 session_start();
 ?>
-<head>
-<title>PHP Blog</title>
-<meta name="viewport" content="width=device-width",initial-scale=1">
+	<!DOCTYPE HTML>
+		<html>
+			<title>PHP Blog</title>
+			<meta name="viewport" content="width=device-width",initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
+
 <script src='tinymce/tinymce.min.js'></script>
 
-</head>
+<body>
 
-<div class="w3-container w3-teal">
+<header class="w3-container w3-teal">
 <h1>PHP Blog</h1>
-</div>
+</header>
+
 <div class="w3-bar w3-border">
 <a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a> 
 <?php 
@@ -21,8 +24,11 @@ echo "<a href='admin.php' class='w3-bar-item w3-btn'>Admin Panel</a>";
 } 
 else {
 echo "<a href='login.php' class='w3-bar-item w3-pale-red' >Login</a>";
-}
-?> 
+} 
+?>
 </div>
-<body>
-
+<br>
+	<form action="search.php" method ="GET" class="w3-container">
+	<input type ="text" name="q" class="w3-input w3-border" placeholder="Search for anything" required>
+		<input type="submit" class="w3-btn w3-teal" value="Search">
+			</form>
