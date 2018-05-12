@@ -29,7 +29,7 @@ else {
 	?>
 		
 
-<form class="w3-container" action="<?php $_PHP_SELF ?>" method="POST">
+<form class="w3-container" action="<?php htmlspecialchars($_SERVER['PHP_SELF'];?>" method="POST">
 <label>Title</label>
 
 <input type="text" class="w3-input w3-border" name="title" required>
