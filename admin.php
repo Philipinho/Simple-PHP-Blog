@@ -60,7 +60,7 @@ echo "</tr>";
 <td><a href="view.php?id=<?php echo $id;?>"><?php echo substr($title, 0, 50) ;?></a></td>
 <td><?php echo $time;?></td>
 <td><?php echo $hits;?></td>
-<td><a href="edit.php?id=<?php echo $id;?>">Edit</a> | <a href="del.php?id=<?php echo $id;?>" onlick="return confirm('Are you sure you want to delete this post?')">Delete</a></td>
+<td><a href="edit.php?id=<?php echo $id;?>">Edit</a> | <a href="del.php?id=<?php echo $id;?>" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a></td>
 </tr>
 
 <?php 
