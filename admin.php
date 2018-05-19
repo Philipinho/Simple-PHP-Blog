@@ -1,13 +1,14 @@
 <?php
 session_start();
+include("connect.php");
+		include("header.php");
 if(!isset($_SESSION['username'])) {
 	header("location: login.php");
 	exit();
 	}
-		include("connect.php");
-		include("header.php");
+		
 ?>
-<div class="w3-container w3-teal">Admin dashboard</div>
+<h2 class="w3-container w3-teal w3-center">Admin Dashboard</h2>
 <div class="w3-container">
 <p>Welcome <?php echo $_SESSION['username']; ?></p>
 <a href="new.php">Create new post</a>
@@ -42,9 +43,9 @@ if(mysqli_num_rows($result) < 1) {
 echo "<tr class='w3-teal w3-hover-green'>";
 echo "<th>ID</th>";
 echo "<th>Title</th>";
-echo "<th>Posted by</th>";
 echo "<th>Date</th>";
 echo "<th>Views</th>";
+echo "<th>Action</th>";
 echo "</tr>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		$id = $row['id'];
@@ -56,10 +57,10 @@ echo "</tr>";
 
 <tr>
 	<td><?php echo $id;?></td>
-<td><a href="view.php?id=<?php echo $id;?>"><?php echo $title;?></a></td>
-<td><?php echo $by;?></td>
+<td><a href="view.php?id=<?php echo $id;?>"><?php echo substr($title, 0, 50) ;?></a></td>
 <td><?php echo $time;?></td>
 <td><?php echo $hits;?></td>
+<td><a href="edit.php?id=<?php echo $id;?>">Edit</a> | <a href="del.php?id=<?php echo $id;?>" onlick="return confirm('Are you sure you want to delete this post?')">Delete</a></td>
 </tr>
 
 <?php 
