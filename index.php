@@ -80,5 +80,5 @@ if($x == $page) {
 	echo "<a href='?page=$totalpages' class='w3-btn'>&raquo;</a>";
 	} 
 	echo "</div>";
-	
+	include("categories.php");
 include("footer.php");?>
