@@ -46,7 +46,7 @@ if(mysqli_query($dbcon, $sql2)) {
 <input type="text" class="w3-input w3-border" name="title" value="<?php echo $title;?>">
 
 <label>Description</label>
-<textarea class="w3-input w3-border" name="description"><?php echo $description;?> </textarea>
+<textarea class="w3-input w3-border" id="description" name="description"><?php echo $description;?> </textarea>
 
 <input type="submit" class="w3-btn w3-teal w3-round" name="upd" value="Edit">
 </form>
