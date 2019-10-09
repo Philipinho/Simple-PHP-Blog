@@ -42,6 +42,4 @@ echo '
 
 }
 
-include("footer.php");
-?>
-    
+include("footer.php");   
