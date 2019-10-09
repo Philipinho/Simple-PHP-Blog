@@ -5,11 +5,11 @@ Include("connect.php");
 
 	if(isset($_POST['log'])) {
 		$username = mysqli_real_escape_string($dbcon, $_POST['username']);
-		$password = mysqli_real_escape_string($dbcon, md5($_POST['password']));
-		$sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+		$password = mysqli_real_escape_string($dbcon, $_POST['password']);
+		$sql = "SELECT * FROM admin WHERE username = '$username'";
 		$result = mysqli_query($dbcon, $sql);
 		$rows = mysqli_num_rows($result); 
-		if($rows == 1) {
+		if($rows == 1 && password_verify($password, $result['password'])) {
 			$_SESSION['username'] = $username;
 			header("location: admin.php");
 			} 
