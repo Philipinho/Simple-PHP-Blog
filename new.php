@@ -1,31 +1,28 @@
 <?php
 session_start();
-if(!isset($_SESSION['username'])) {
-	header("location: login.php");
-	exit();
-	} 
- include("header.php");
+include("header.php");
 include("connect.php");
+include("security.php");
 
 echo '<div class="w3-container w3-teal">
 <h2>New  Post</h2></div>';
 
-if(isset($_POST['submit'])) {
-$title = mysqli_real_escape_string($dbcon, $_POST['title']);
-$description = mysqli_real_escape_string($dbcon, $_POST ['description']); 
-$date = date('Y-m-d H:i');
-$posted_by = mysqli_real_escape_string($dbcon, $_SESSION['username']);
+if (isset($_POST['submit'])) {
+    $title = mysqli_real_escape_string($dbcon, $_POST['title']);
+    $description = mysqli_real_escape_string($dbcon, $_POST ['description']);
+    $date = date('Y-m-d H:i');
+    $posted_by = mysqli_real_escape_string($dbcon, $_SESSION['username']);
 
-$sql = "INSERT INTO posts (title, description, posted_by, date) VALUES('$title', '$description', '$posted_by', '$date')";
-mysqli_query($dbcon, $sql) or die("failed to post". mysqli_connect_error());
+    $sql = "INSERT INTO posts (title, description, posted_by, date) VALUES('$title', '$description', '$posted_by', '$date')";
+    mysqli_query($dbcon, $sql) or die("failed to post" . mysqli_connect_error());
 
-  printf("Posted successfully. <meta http-equiv='refresh' content='2; url=view.php?id=%d'/>", mysqli_insert_id($dbcon));
-	
-	
-	}
-else {
+    printf("Posted successfully. <meta http-equiv='refresh' content='2; url=view.php?id=%d'/>",
+        mysqli_insert_id($dbcon));
 
-echo '
+
+} else {
+
+    echo '
 <form class="w3-container" method="POST">
 <label>Title</label>
 
