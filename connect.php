@@ -3,7 +3,7 @@ $dbhost 	= "localhost";
 $dbuser 	= "root";
 $dbpass 	= "";
 $dbname 	= "newblog";
-$charset 	= "utf8"
+$charset 	= "utf8";
 
 $dbcon = mysqli_connect($dbhost, $dbuser, $dbpass);
 
