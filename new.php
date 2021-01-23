@@ -1,23 +1,29 @@
 <?php
 session_start();
 include("header.php");
-include("connect.php");
 include("security.php");
 
 echo '<div class="w3-container w3-teal">
 <h2>New  Post</h2></div>';
 
 if (isset($_POST['submit'])) {
-    $title = mysqli_real_escape_string($dbcon, $_POST['title']);
-    $description = mysqli_real_escape_string($dbcon, $_POST ['description']);
+    $title = $_POST['title'];
+    $description = $_POST ['description'];
     $date = date('Y-m-d H:i');
-    $posted_by = mysqli_real_escape_string($dbcon, $_SESSION['username']);
-
-    $sql = "INSERT INTO posts (title, description, posted_by, date) VALUES('$title', '$description', '$posted_by', '$date')";
-    mysqli_query($dbcon, $sql) or die("failed to post" . mysqli_connect_error());
-
-    printf("Posted successfully. <meta http-equiv='refresh' content='2; url=view.php?id=%d'/>",
-        mysqli_insert_id($dbcon));
+    $posted_by = $_SESSION['username'];
+    $posts = file_get_contents("/Users/mac/Desktop/Projects/Simple-PHP-Blog/db/posts.json");
+    $jsonPosts = json_decode($posts, true);
+    $numrows = count($jsonPosts['posts']);
+    array_push($jsonPosts['posts'], [
+        "id"=>$numrows+1,
+        "title"=>$title,
+        "description"=>$description,
+        "date"=>$date,
+        "posted_by"=>$posted_by
+    ]);
+    $outputJson = json_encode($jsonPosts);
+    file_put_contents("/Users/mac/Desktop/Projects/Simple-PHP-Blog/db/posts.json", $outputJson);
+    printf("Posted successfully. <meta http-equiv='refresh' content='2; url=view.php?id=%d'/>",$numrows + 1);
 
 
 } else {

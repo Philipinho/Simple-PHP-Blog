@@ -1,6 +1,5 @@
 <?php
 include("header.php");
-include("connect.php");
 
 if (isset($_GET['q'])) {
     $q = mysqli_real_escape_string($dbcon, $_GET['q']);

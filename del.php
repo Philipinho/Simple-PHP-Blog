@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("connect.php");
 include("security.php");
 
 if (isset($_GET['id'])) {

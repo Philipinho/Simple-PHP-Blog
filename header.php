@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" ,initial-scale=1">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
     <title>PHP Blog</title>
 
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -31,7 +31,4 @@ session_start();
     ?>
 </div>
 <br>
-<form action="search.php" method="GET" class="w3-container">
-    <input type="text" name="q" class="w3-input w3-border" placeholder="Search for anything" required>
-    <input type="submit" class="w3-btn w3-teal" value="Search">
-</form>
+

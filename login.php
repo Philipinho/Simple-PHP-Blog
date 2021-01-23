@@ -1,17 +1,22 @@
 <?php
 session_start();
 Include("header.php");
-Include("connect.php");
 
 if (isset($_POST['log'])) {
-    $username = mysqli_real_escape_string($dbcon, $_POST['username']);
-    $password = mysqli_real_escape_string($dbcon, $_POST['password']);
-    $sql = "SELECT * FROM admin WHERE username = '$username'";
-    $result = mysqli_query($dbcon, $sql);
-    $rows = mysqli_num_rows($result);
-    if ($rows == 1 && password_verify($password, $result['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $users = file_get_contents("/Users/mac/Desktop/Projects/Simple-PHP-Blog/db/users.json");
+    $json = json_decode($users, true);
+    $validUser = 0;
+    foreach ($json['users'] as $user) {
+        if ($user['username'] == $username && $user['password'] == $password) {
+            $validUser = 1;
+        }
+    }
+    if ($validUser == 1) {
         $_SESSION['username'] = $username;
-        header("location: admin.php");
+        header("location: index.php");
+        die;
     } else {
         echo "incorrect details";
     }

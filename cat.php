@@ -1,5 +1,4 @@
 <?php
-include("connect.php");
 include("header.php");
 
 $id = (INT)$_GET['id'];

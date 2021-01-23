@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("header.php");
-include("connect.php");
 include("security.php");
 
 $id = (INT)$_GET['id'];
