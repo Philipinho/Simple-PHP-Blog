@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("connect.php");
 include("header.php");
 include("security.php");
@@ -18,6 +17,7 @@ $r = mysqli_fetch_row($result);
 $numrows = $r[0];
 $rowsperpage = 5;
 $totalpages = ceil($numrows / $rowsperpage);
+$page = 1;
 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $page = (INT)$_GET['page'];
 }
