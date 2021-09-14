@@ -17,6 +17,7 @@ $numrows = $r[0];
 $rowsperpage = 5;
 $totalpages = ceil($numrows / $rowsperpage);
 
+$page = 1;
 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $page = (INT)$_GET['page'];
 }
