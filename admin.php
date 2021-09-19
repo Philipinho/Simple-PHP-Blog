@@ -5,9 +5,8 @@ include("security.php");
 ?>
     <h2 class="w3-container w3-teal w3-center">Admin Dashboard</h2>
     <div class="w3-container">
-        <p>Welcome <?php echo $_SESSION['username']; ?></p>
+        <p>Welcome <?php echo $_SESSION['username']; ?>,</p>
         <a href="new.php">Create new post</a>
-        <p><a href="logout.php">Logout</a></p>
     </div>
     <h5 class="w3-center">Posts</h5>
 <?php
@@ -62,7 +61,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <?php
 }
 echo "</table>";
-// pagination 
+// pagination
 echo "<div class='w3-bar w3-center'>";
 if ($page > 1) {
     echo "<a href='?page=1' class='w3-btn'><<</a>";

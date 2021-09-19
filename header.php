@@ -25,6 +25,7 @@ session_start();
     if (isset($_SESSION['username'])) {
         echo "<a href='new.php' class='w3-bar-item w3-btn'>New Post</a>";
         echo "<a href='admin.php' class='w3-bar-item w3-btn'>Admin Panel</a>";
+        echo "<a href='logout.php' class='w3-bar-item w3-btn'>Logout</a>";
     } else {
         echo "<a href='login.php' class='w3-bar-item w3-pale-red' >Login</a>";
     }
