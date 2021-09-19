@@ -7,15 +7,19 @@ if (isset($_GET['q'])) {
 
     $sql = "SELECT * FROM posts WHERE title LIKE '%{$q}%' OR description LIKE '%{$q}%'";
     $result = mysqli_query($dbcon, $sql);
+
     if (mysqli_num_rows($result) < 1) {
         echo "Nothing found.";
-    }
+    } else {
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $id = $row['id'];
-        $title = $row['title'];
-        $des = $row['description'];
-        $time = $r['date'];
+      echo "<div class='w3-container w3-padding'>Showing results for $q</div>";
+
+      while ($row = mysqli_fetch_assoc($result)) {
+
+        $id = htmlentities($row['id']);
+        $title = htmlentities($row['title']);
+        $des = htmlentities(strip_tags($row['description']));
+        $time = htmlentities($row['date']);
 
         echo '<div class="w3-panel w3-sand w3-card-4">';
         echo "<h3><a href='view.php?id=$id'>$title</a></h3><p>";
@@ -29,6 +33,8 @@ if (isset($_GET['q'])) {
         echo "$time</div>";
         echo '</div>';
 
+      }
+
     }
 }
-include("footer.php"); 
+include("footer.php");
