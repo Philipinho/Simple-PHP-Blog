@@ -8,7 +8,7 @@ include("connect.php");
 </div>
 
 <?php
-// COUNT 
+// COUNT
 $sql = "SELECT COUNT(*) FROM posts";
 $result = mysqli_query($dbcon, $sql);
 $r = mysqli_fetch_row($result);
@@ -41,7 +41,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     $id = htmlentities($row['id']);
     $title = htmlentities($row['title']);
-    $des = htmlentities($row['description']);
+    $des = htmlentities(strip_tags($row['description']));
     $time = htmlentities($row['date']);
 
     echo '<div class="w3-panel w3-sand w3-card-4">';
@@ -49,21 +49,23 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     echo substr($des, 0, 100);
 
-    echo '</p><div class="w3-text-teal">';
-    echo "<a href='view.php?id=$id'>Read more...</a>";
+    echo '<div class="w3-text-teal">';
+    echo "<a href='view.php?id=$id'>Read more...</a></p>";
 
-    echo '</div> <div class="w3-text-grey">';
-    echo "$time</div>";
+    echo '</div>';
+    echo "<div class='w3-text-grey'> $time </div>";
     echo '</div>';
 }
 
 
 echo "<div class='w3-bar w3-center'>";
+
 if ($page > 1) {
     echo "<a href='?page=1'>&laquo;</a>";
     $prevpage = $page - 1;
     echo "<a href='?page=$prevpage' class='w3-btn'><</a>";
 }
+
 $range = 5;
 for ($x = $page - $range; $x < ($page + $range) + 1; $x++) {
     if (($x > 0) && ($x <= $totalpages)) {
@@ -80,6 +82,8 @@ if ($page != $totalpages) {
     echo "<a href='?page=$nextpage' class='w3-button'>></a>";
     echo "<a href='?page=$totalpages' class='w3-btn'>&raquo;</a>";
 }
+
 echo "</div>";
+
 include("categories.php");
 include("footer.php");
