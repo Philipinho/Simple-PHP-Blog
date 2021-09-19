@@ -1,9 +1,13 @@
 # Simple-PHP-Blog
-Simple Blog system for personal development using procedural PHP and MYSQL. 
+Simple Blog system for personal development using procedural PHP and MYSQL.
 
 It contains lots of code repetitions.
 It is only for learning purpose.
 I coded and tested it on my phone, it contains bugs i didn't notice then.
+
+# Default Admin Login
+Username: admin  
+Password: 12345  
 
 # Screenshots
 
