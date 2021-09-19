@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("connect.php");
 include("header.php");
 include("security.php");
@@ -18,6 +17,7 @@ $r = mysqli_fetch_row($result);
 $numrows = $r[0];
 $rowsperpage = 5;
 $totalpages = ceil($numrows / $rowsperpage);
+$page = 1;
 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $page = (INT)$_GET['page'];
 }
@@ -48,14 +48,12 @@ while ($row = mysqli_fetch_assoc($result)) {
     $title = $row['title'];
     $by = $row['posted_by'];
     $time = $row['date'];
-    $hits = $row['hits'];
     ?>
 
     <tr>
         <td><?php echo $id; ?></td>
         <td><a href="view.php?id=<?php echo $id; ?>"><?php echo substr($title, 0, 50); ?></a></td>
         <td><?php echo $time; ?></td>
-        <td><?php echo $hits; ?></td>
         <td><a href="edit.php?id=<?php echo $id; ?>">Edit</a> | <a href="del.php?id=<?php echo $id; ?>"
                                                                    onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
         </td>

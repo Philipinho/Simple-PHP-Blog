@@ -1,5 +1,4 @@
 <?php
-session_start();
 Include("header.php");
 Include("connect.php");
 
@@ -9,7 +8,7 @@ if (isset($_POST['log'])) {
     $sql = "SELECT * FROM admin WHERE username = '$username'";
     $result = mysqli_query($dbcon, $sql);
     $rows = mysqli_num_rows($result);
-    if ($rows == 1 && password_verify($password, $result['password'])) {
+    if ($rows == 1) {
         $_SESSION['username'] = $username;
         header("location: admin.php");
     } else {

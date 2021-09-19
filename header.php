@@ -22,7 +22,7 @@ session_start();
 <div class="w3-bar w3-border">
     <a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a>
     <?php
-    if ($_SESSION['username']) {
+    if (isset($_SESSION['username'])) {
         echo "<a href='new.php' class='w3-bar-item w3-btn'>New Post</a>";
         echo "<a href='admin.php' class='w3-bar-item w3-btn'>Admin Panel</a>";
     } else {
