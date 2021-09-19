@@ -18,5 +18,5 @@ if ($result){
     }
     echo "</div>";
 }else{
-    echo "<div class='w3-panel w3-pale-red'>Not Category found.</div>";
+    echo "<div class='w3-panel w3-pale-red'>No Category found.</div>";
 }
