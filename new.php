@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 } else {
 
     echo '
-<form class="w3-container" method="POST">
+<form class="w3-container w3-padding" method="POST">
 <label>Title</label>
 
 <input type="text" class="w3-input w3-border" name="title" required>
@@ -38,4 +38,4 @@ if (isset($_POST['submit'])) {
 
 }
 
-include("footer.php");   
+include("footer.php");
