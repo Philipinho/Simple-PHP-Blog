@@ -36,8 +36,8 @@ $result = mysqli_query($dbcon, $sql);
 
 if (mysqli_num_rows($result) < 1) {
     echo '<div class="w3-panel w3-pale-red w3-card-2 w3-border w3-round">No post yet!</div>';
-}
-while ($row = mysqli_fetch_assoc($result)) {
+} else {
+  while ($row = mysqli_fetch_assoc($result)) {
 
     $id = htmlentities($row['id']);
     $title = htmlentities($row['title']);
@@ -58,7 +58,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 
-echo "<div class='w3-bar w3-center'>";
+echo "<div class='w3-bar w3-center w3-padding'>";
 
 if ($page > 1) {
     echo "<a href='?page=1'>&laquo;</a>";
@@ -84,6 +84,7 @@ if ($page != $totalpages) {
 }
 
 echo "</div>";
+}
 
 include("categories.php");
 include("footer.php");
