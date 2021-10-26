@@ -31,7 +31,7 @@ session_start();
     ?>
 </div>
 <br>
-<form action="search.php" method="GET" class="w3-container">
+<form action="search.php" method="GET" class="w3-container w3-padding">
     <input type="text" name="q" class="w3-input w3-border" placeholder="Search for anything" required>
     <input type="submit" class="w3-btn w3-teal" value="Search">
 </form>
