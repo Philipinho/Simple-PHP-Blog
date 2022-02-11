@@ -34,9 +34,9 @@ while ($row = mysqli_fetch_assoc($result)) {
         if (mysqli_query($dbcon, $sql2)) {
             $permalink = "p/".$id."/".$new_slug;
 
-            echo "Slug successfully generated slug for <a href='$permalink'>$title</a><br>" ;
+            echo "Slug successfully generated for <a href='$permalink'>$title</a><br>" ;
         } else {
-            echo "failed to generate slug for post ID: $id." . mysqli_connect_error();
+            echo "Failed to generate slug for post ID: $id." . mysqli_connect_error();
         }
 
     }
