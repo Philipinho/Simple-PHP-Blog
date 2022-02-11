@@ -1,6 +1,6 @@
 <?php
-include("header.php");
-include("connect.php");
+require_once 'connect.php';
+require_once 'header.php';
 ?>
 
 <div class="w3-panel">
@@ -14,7 +14,7 @@ $result = mysqli_query($dbcon, $sql);
 $r = mysqli_fetch_row($result);
 $numrows = $r[0];
 
-$rowsperpage = 5;
+$rowsperpage = PAGINATION;
 $totalpages = ceil($numrows / $rowsperpage);
 
 $page = 1;
@@ -42,15 +42,18 @@ if (mysqli_num_rows($result) < 1) {
     $id = htmlentities($row['id']);
     $title = htmlentities($row['title']);
     $des = htmlentities(strip_tags($row['description']));
+    $slug = htmlentities($row['slug']);
     $time = htmlentities($row['date']);
 
+    $permalink = "p/".$id ."/".$slug;
+
     echo '<div class="w3-panel w3-sand w3-card-4">';
-    echo "<h3><a href='view.php?id=$id'>$title</a></h3><p>";
+    echo "<h3><a href='$permalink'>$title</a></h3><p>";
 
     echo substr($des, 0, 100);
 
     echo '<div class="w3-text-teal">';
-    echo "<a href='view.php?id=$id'>Read more...</a></p>";
+    echo "<a href='$permalink'>Read more...</a></p>";
 
     echo '</div>';
     echo "<div class='w3-text-grey'> $time </div>";
@@ -58,7 +61,7 @@ if (mysqli_num_rows($result) < 1) {
 }
 
 
-echo "<div class='w3-bar w3-center w3-padding'>";
+echo "<p><div class='w3-bar w3-center'>";
 
 if ($page > 1) {
     echo "<a href='?page=1'>&laquo;</a>";
@@ -83,7 +86,7 @@ if ($page != $totalpages) {
     echo "<a href='?page=$totalpages' class='w3-btn'>&raquo;</a>";
 }
 
-echo "</div>";
+echo "</div></p>";
 }
 
 include("categories.php");

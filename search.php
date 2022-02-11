@@ -1,6 +1,6 @@
 <?php
-include("header.php");
-include("connect.php");
+require_once 'connect.php';
+require_once 'header.php';
 
 if (isset($_GET['q'])) {
     $q = mysqli_real_escape_string($dbcon, $_GET['q']);
@@ -19,15 +19,18 @@ if (isset($_GET['q'])) {
         $id = htmlentities($row['id']);
         $title = htmlentities($row['title']);
         $des = htmlentities(strip_tags($row['description']));
+        $slug = htmlentities(strip_tags($row['slug']));
         $time = htmlentities($row['date']);
 
+        $permalink = "p/".$id ."/".$slug;
+
         echo '<div class="w3-panel w3-sand w3-card-4">';
-        echo "<h3><a href='view.php?id=$id'>$title</a></h3><p>";
+        echo "<h3><a href='$permalink'>$title</a></h3><p>";
 
         echo substr($des, 0, 100);
 
         echo '</p><div class="w3-text-teal">';
-        echo "<a href='view.php?id=$id'>Read more...</a>";
+        echo "<a href='$permalink'>Read more...</a>";
 
         echo '</div> <div class="w3-text-grey">';
         echo "$time</div>";

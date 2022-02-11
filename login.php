@@ -1,6 +1,6 @@
 <?php
-Include("header.php");
-Include("connect.php");
+require_once 'connect.php';
+require_once 'header.php';
 
 echo '<h2 class="w3-container w3-teal">Login</h2>';
 
@@ -26,7 +26,7 @@ if (isset($_POST['log'])) {
 
     <form action="" method="POST" class="w3-container w3-padding">
         <label>Username </label>
-        <input type="text" name="username"  value="<?=strip_tags($_POST['username'])?>" class="w3-input w3-border">
+        <input type="text" name="username"  value="<?php if(isset($_POST['username'])){ echo strip_tags($_POST['username']);}?>" class="w3-input w3-border">
         <label>Password</label>
         <input type="password" name="password" class="w3-input w3-border">
         <p><input type="submit" name="log" value="Login" class="w3-btn w3-teal"></p>

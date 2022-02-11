@@ -1,6 +1,6 @@
 <?php
-include("connect.php");
-include("header.php");
+require_once 'connect.php';
+require_once 'header.php';
 
 $id = (INT)$_GET['id'];
 if ($id < 1) {
