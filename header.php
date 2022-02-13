@@ -1,5 +1,13 @@
 <?php
-session_start();
+require_once 'functions.php';
+require_once 'config.php';
+
+if (!empty(SITE_ROOT)){
+    $url_path = "/".SITE_ROOT."/";
+} else{
+    $url_path = "/";
+}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -19,19 +27,25 @@ session_start();
 </header>
 
 <div class="w3-bar w3-border">
-    <a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a>
+    <a href="/<?=SITE_ROOT?>" class="w3-bar-item w3-button w3-pale-green">Home</a>
     <?php
     if (isset($_SESSION['username'])) {
-        echo "<a href='new.php' class='w3-bar-item w3-btn'>New Post</a>";
-        echo "<a href='admin.php' class='w3-bar-item w3-btn'>Admin Panel</a>";
-        echo "<a href='logout.php' class='w3-bar-item w3-btn'>Logout</a>";
+        echo "<a href='".$url_path ."new.php' class='w3-bar-item w3-btn'>New Post</a>";
+        echo "<a href='".$url_path ."admin.php' class='w3-bar-item w3-btn'>Admin Panel</a>";
+        echo "<a href='".$url_path ."logout.php' class='w3-bar-item w3-btn'>Logout</a>";
     } else {
-        echo "<a href='login.php' class='w3-bar-item w3-pale-red' >Login</a>";
+        echo "<a href='".$url_path ."login.php' class='w3-bar-item w3-pale-red' >Login</a>";
     }
     ?>
 </div>
-<br>
-<form action="search.php" method="GET" class="w3-container w3-padding">
-    <input type="text" name="q" class="w3-input w3-border" placeholder="Search for anything" required>
-    <input type="submit" class="w3-btn w3-teal" value="Search">
-</form>
+
+<div class="w3-container">
+    <form action="<?=$url_path?>search.php" method="GET" class="w3-container">
+        <p>
+            <input type="text" name="q" class="w3-input w3-border" placeholder="Search for anything" required>
+        </p>
+        <p>
+        <input type="submit" class="w3-btn w3-teal w3-round" value="Search">
+        </p>
+    </form>
+</div>

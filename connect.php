@@ -1,4 +1,7 @@
 <?php
+ob_start();
+session_start();
+
 $dbhost 	= "localhost";
 $dbuser 	= "root";
 $dbpass 	= "";

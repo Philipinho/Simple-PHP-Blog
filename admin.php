@@ -1,22 +1,26 @@
 <?php
-include("connect.php");
-include("header.php");
-include("security.php");
+require_once 'connect.php';
+require_once 'header.php';
+require_once 'security.php';
 ?>
     <h2 class="w3-container w3-teal w3-center">Admin Dashboard</h2>
     <div class="w3-container">
         <p>Welcome <?php echo $_SESSION['username']; ?>,</p>
-        <a href="new.php">Create new post</a>
+        <p><a href="new.php" class="w3-button w3-teal">Create new post</a></p>
+        <p><a href="generate_slugs.php" class="w3-button w3-teal">Generate slugs (SEO URLs)</a></p>
+
     </div>
     <h5 class="w3-center">Posts</h5>
 <?php
 $sql = "SELECT COUNT(*) FROM posts";
 $result = mysqli_query($dbcon, $sql);
 $r = mysqli_fetch_row($result);
+
 $numrows = $r[0];
-$rowsperpage = 5;
+$rowsperpage = PAGINATION;
 $totalpages = ceil($numrows / $rowsperpage);
 $page = 1;
+
 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $page = (INT)$_GET['page'];
 }
@@ -42,16 +46,20 @@ echo "<th>Date</th>";
 echo "<th>Views</th>";
 echo "<th>Action</th>";
 echo "</tr>";
+
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row['id'];
     $title = $row['title'];
-    $by = $row['posted_by'];
+    $slug = $row['slug'];
+    $author = $row['posted_by'];
     $time = $row['date'];
+
+    $permalink = "p/".$id ."/".$slug;
     ?>
 
     <tr>
         <td><?php echo $id; ?></td>
-        <td><a href="view.php?id=<?php echo $id; ?>"><?php echo substr($title, 0, 50); ?></a></td>
+        <td><a href="<?php echo $permalink; ?>"><?php echo substr($title, 0, 50); ?></a></td>
         <td><?php echo $time; ?></td>
         <td><a href="edit.php?id=<?php echo $id; ?>">Edit</a> | <a href="del.php?id=<?php echo $id; ?>"
                                                                    onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
@@ -61,8 +69,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     <?php
 }
 echo "</table>";
+
 // pagination
-echo "<div class='w3-bar w3-center'>";
+echo "<p><div class='w3-bar w3-center'>";
 if ($page > 1) {
     echo "<a href='?page=1' class='w3-btn'><<</a>";
     $prevpage = $page - 1;
@@ -83,6 +92,6 @@ if ($page != $totalpages) {
     echo "<a href='?page=$nextpage' class='w3-btn'>></a>";
     echo "<a href='?page=$totalpages' class='w3-btn'>>></a>";
 }
-echo "</div>";
+echo "</div></p>";
 
 include("footer.php");
