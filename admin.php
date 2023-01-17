@@ -61,6 +61,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <td><?php echo $id; ?></td>
         <td><a href="<?php echo $permalink; ?>"><?php echo substr($title, 0, 50); ?></a></td>
         <td><?php echo $time; ?></td>
+        <td><?php echo "<h3><a href='$permalink'>view post</a></h3><p>"; ?></td>
         <td><a href="edit.php?id=<?php echo $id; ?>">Edit</a> | <a href="del.php?id=<?php echo $id; ?>"
                                                                    onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
         </td>
