@@ -2,7 +2,7 @@
 require_once 'connect.php';
 require_once 'header.php';
 
-$id = (INT)$_GET['id'];
+$id = (int)$_GET['id'];
 if ($id < 1) {
     header("location: index.php");
 }

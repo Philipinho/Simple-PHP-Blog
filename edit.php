@@ -3,7 +3,7 @@ require_once 'connect.php';
 require_once 'header.php';
 require_once 'security.php';
 
-$id = (INT)$_GET['id'];
+$id = (int)$_GET['id'];
 if ($id < 1) {
     header("location: index.php");
 }
@@ -18,7 +18,7 @@ $id = $row['id'];
 $title = $row['title'];
 $description = $row['description'];
 $slug = $row['slug'];
-$permalink = "p/". $id."/".$slug;
+$permalink = "p/" . $id . "/" . $slug;
 
 if (isset($_POST['upd'])) {
     $id = $_POST['id'];
@@ -36,13 +36,13 @@ if (isset($_POST['upd'])) {
 }
 ?>
 
-    <div class="w3-container">
+<div class="w3-container">
     <div class="w3-card-4">
 
         <div class="w3-container w3-teal">
             <h2>Edit Post - </h2>
         </div>
-            <h4 class="w3-container"><a href="<?=$permalink?>">Goto post</a> </h4>
+        <h4 class="w3-container"><a href="<?= $permalink ?>">Goto post</a> </h4>
 
         <form action="" method="POST" class="w3-container">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -64,12 +64,12 @@ if (isset($_POST['upd'])) {
 
             <p>
             <div class="w3-text-red">
-                <a href="<?=$url_path?>del.php?id=<?php echo $row['id']; ?>"
-                   onclick="return confirm('Are you sure you want to delete this post?'); ">Delete Post</a></div>
+                <a href="<?= $url_path ?>del.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this post?'); ">Delete Post</a>
+            </div>
             </p>
         </form>
     </div>
-    </div>
+</div>
 
 <?php
 
