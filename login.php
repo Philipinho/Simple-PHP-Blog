@@ -26,7 +26,7 @@ if (isset($_POST['log'])) {
 <form action="" method="POST" class="w3-container w3-padding">
     <label>Username </label>
     <input type="text" name="username" value="<?php if (isset($_POST['username'])) {
-                                                    echo strip_tags($_POST['username']);
+                                                    echo htmlentities(strip_tags($_POST['username']), ENT_SUBSTITUTE);
                                                 } ?>" class="w3-input w3-border">
     <label>Password</label>
     <input type="password" name="password" class="w3-input w3-border">
