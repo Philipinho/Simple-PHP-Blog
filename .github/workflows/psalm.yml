@@ -31,6 +31,9 @@ jobs:
 
       - name: Psalm Security Scan
         uses: psalm/psalm-github-security-scan@f3e6fd9432bc3e44aec078572677ce9d2ef9c287
+        with:
+          composer_require_dev: false
+          composer_ignore_platform_reqs: false
 
       - name: Upload Security Analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v2
@@ -40,6 +43,8 @@ jobs:
       - name: Psalm – Static Analysis for PHP
         uses: psalm/psalm-github-actions@2.3.0
         with:
+          composer_require_dev: false
+          composer_ignore_platform_reqs: false
           security_analysis: true
           report_file: results.sarif
 
