@@ -13,7 +13,7 @@ jobs:
       - name: Psalm
         uses: docker://ghcr.io/psalm/psalm-github-actions:5.7.7
         with:
-          composer_require_dev: true
+          composer_require_dev: false
           composer_ignore_platform_reqs: true
           security_analysis: true
           report_file: results.sarif
