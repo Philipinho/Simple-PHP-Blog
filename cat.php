@@ -1,5 +1,4 @@
 <?php
-require_once 'connect.php';
 require_once 'header.php';
 
 $id = (int)$_GET['id'];

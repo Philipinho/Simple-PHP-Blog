@@ -1,5 +1,4 @@
 <?php
-require_once 'connect.php';
 require_once 'security.php';
 
 if (isset($_GET['id'])) {
