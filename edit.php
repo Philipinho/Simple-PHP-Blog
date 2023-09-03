@@ -44,7 +44,7 @@ if (isset($_POST['upd'])) {
         <h4 class="w3-container"><a href="<?= $permalink ?>">Goto post</a> </h4>
 
         <form action="" method="POST" class="w3-container">
-            <input type="hidden" name="id" value="<?php echo htmlentities($id, ENT_SUBSTITUTE); ?>">
+            <input type="hidden" name="id" value="<?php $CurrentID = htmlentities($id, ENT_SUBSTITUTE); echo $CurrentID; ?>">
             <p>
                 <label>Title</label>
                 <input type="text" class="w3-input w3-border" name="title" value="<?php echo $title; ?>">
