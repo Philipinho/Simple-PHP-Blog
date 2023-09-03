@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require_once 'security.php';
+require_once 'functions/security.php';
 
 if (isset($_POST['submit'])) {
     $title = mysqli_real_escape_string($dbcon, $_POST['title']);

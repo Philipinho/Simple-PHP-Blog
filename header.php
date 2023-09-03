@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
-require_once 'functions.php';
-require_once 'connect.php';
+require_once 'functions/functions.php'
+require_once 'functions/connect.php'
 
 if (!empty(SITE_ROOT)) {
     $url_path = "/" . SITE_ROOT . "/";

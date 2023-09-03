@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require_once 'security.php';
+require_once 'functions/security.php';
 ?>
 <h2 class="w3-container w3-teal w3-center">Admin Dashboard</h2>
 <div class="w3-container">

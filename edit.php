@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require_once 'security.php';
+require_once 'functions/security.php';
 
 $id = (int)$_GET['id'];
 if ($id < 1) {
