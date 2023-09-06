@@ -4,7 +4,8 @@ Simple blog system for personal development using procedural PHP and MySQLi. It 
 For educational purposes only.
 
 Setup
-=====
+===
+
 1. Create a MySQL database on your MySQL server, take note of the details (username, password, database name, server name)
 2. Import the `database.sql` file into the new database you created
 3. Edit the `config.php` file
@@ -32,7 +33,8 @@ location / {
 ```
 
 Using the Simple-PHP-Blog
-=====
+===
+
 The system is quite easy to use, as there isnt much work required to do a simple blog. If you are building your own from scratch this will give the head start that you need.
 
 ## Default Admin Login
