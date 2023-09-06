@@ -1,5 +1,6 @@
 <?php
-require_once 'security.php';
+require_once 'header.php';
+require_once 'functions/security.php';
 
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == true) {
@@ -13,7 +14,7 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($dbcon, $sql);
 
     if ($result) {
-        header('location: index.php');
+        echo "Deleted post.";
     } else {
         echo "Failed to delete." . mysqli_connect_error();
     }
