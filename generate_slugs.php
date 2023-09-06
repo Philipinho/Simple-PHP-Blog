@@ -1,4 +1,10 @@
 <?php
+# Turn on debug mode, and show all errors.
+if (DEBUG_MODE == 1) {
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+}
+
 set_time_limit(0);
 require_once 'functions/connect.php';
 require_once 'functions/functions.php';
