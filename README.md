@@ -2,6 +2,7 @@
 Simple blog system for personal development using procedural PHP and MySQLi. It allows you to create, edit, delete posts to get you started on your journey.  If you are building your own from scratch this will give the head start that you need.
 
 For educational purposes only.
+
 **__Security is not guaranteed with this system, best efforts have been made to make it secure__**
 
 Setup
