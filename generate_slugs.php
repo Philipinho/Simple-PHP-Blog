@@ -11,11 +11,6 @@ if (DEBUG_MODE == 1) {
     ini_set("display_errors", 1);
 }
 
-$slug_sql = "ALTER TABLE `posts` ADD `slug` VARCHAR(255) NULL DEFAULT NULL AFTER `description`;";
-
-if (mysqli_query($dbcon, $slug_sql)) {
-    echo "slug column added successfully.<br/>";
-}
 
 $sql = "SELECT * FROM posts WHERE slug IS NULL";
 
