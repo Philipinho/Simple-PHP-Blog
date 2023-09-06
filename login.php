@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Now to check if the username field is not empty, otherwise throw an error.
     if (empty(trim($_POST["username"]))) {
-        echo "<div class='w3-panel w3-pale-red w3-display-container'>Incorrect username or password.</div>";
+        echo "<div class='w3-panel w3-pale-red w3-display-container'>Username or password not supplied.</div>";
     } else {
         // We have data for a username, now lets save it in a SQL safe string (e.g. automatically add escape characters, etc.)
         $username = mysqli_real_escape_string($dbcon, $_POST['username']);
@@ -29,15 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Do the same for the password field.
     if (empty(trim($_POST["password"]))) {
-        echo "<div class='w3-panel w3-pale-red w3-display-container'>Incorrect username or password.</div>";
+        echo "<div class='w3-panel w3-pale-red w3-display-container'>Username or password not supplied!</div>";
     } else {
         // And again save the password in a SQL safe string
         $password = mysqli_real_escape_string($dbcon, $_POST['password']);
     }
 
     // Build the SQL statement to get the user details (so we can then verify the user exists AND that the password is valid)
-    $sql = "SELECT 'id', 'username', 'password' FROM users WHERE username = '$username'";
-    $sql = "SELECT 'id', 'username', 'password', 'displayname' FROM users WHERE username = '$username'";
+    $sql = "SELECT `id`, `username`, `password`, `displayname` FROM users WHERE username = '$username'";
 
     // Request the data from the SQL server, process it AND count the number of rows.
     $result = mysqli_query($dbcon, $sql);

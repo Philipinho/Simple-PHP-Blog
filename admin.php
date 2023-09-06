@@ -11,7 +11,7 @@ if (DEBUG_MODE == 1) {
 ?>
 <h2 class="w3-container w3-teal w3-center">Admin Dashboard</h2>
 <div class="w3-container">
-    <p>Welcome <?php echo $_SESSION['username']; ?>,</p>
+    <p>Welcome <?php echo $_SESSION['displayname']; ?>,</p>
     <p><a href="new.php" class="w3-button w3-teal">Create new post</a></p>
     <p><a href="generate_slugs.php" class="w3-button w3-teal">Generate slugs (SEO URLs)</a></p>
 
