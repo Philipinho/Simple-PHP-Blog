@@ -8,10 +8,10 @@ Setup
 1. Create a MySQL database on your MySQL server, take note of the details (username, password, database name, server name)
 2. Import the `database.sql` file into the new database you created
 3. Edit the `config.php` file
-  1. Edit the MySQL details to match your SQL server login details (e.g. server name, username, password, database)
-  2. Edit the `SITE_ROOT` if you are putting it in a folder/sub-directory (e.g. www.example.com/myblog/, you would enter 'myblog' there)
-  3. _OPTIONAL_ Change the number of blog posts to show per page with the `PAGINATION` option
-  4. _OPTIONAL_ Set the `DEBUG_MODE` option to `true` if you want/need to see any and all errors
+   1. Edit the MySQL details to match your SQL server login details (e.g. server name, username, password, database)
+   2. Edit the `SITE_ROOT` if you are putting it in a folder/sub-directory (e.g. www.example.com/myblog/, you would enter 'myblog' there)
+   3. _OPTIONAL_ Change the number of blog posts to show per page with the `PAGINATION` option
+   4. _OPTIONAL_ Set the `DEBUG_MODE` option to `true` if you want/need to see any and all errors
 4. Upload all the files to your web server
 5. Go to your new site (e.g. www.example.com/myblog/)
 
