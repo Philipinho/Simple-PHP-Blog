@@ -25,23 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `displayname` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `email`, `date`) VALUES
-(1, 'Admin', '$2y$10$FfhPYubR4sOXAFSd3NzyQ.C77L4.qIsCa/YlYZCn.2eK8rfWr6oiq', 'admin@example.org', '2021-09-19 14:39:53');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `date`, `displayname`) VALUES
+(1, 'Admin', '$2y$10$FfhPYubR4sOXAFSd3NzyQ.C77L4.qIsCa/YlYZCn.2eK8rfWr6oiq', 'admin@example.org', '2021-09-19 14:39:53', 'Administrator');
 
 -- --------------------------------------------------------
 
@@ -85,9 +86,9 @@ INSERT INTO `posts` (`id`, `title`, `description`, `slug`, `posted_by`, `date`) 
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `users`
 --
-ALTER TABLE `admin`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`);
@@ -110,9 +111,9 @@ ALTER TABLE `posts`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `admin`
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

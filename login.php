@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Build the SQL statement to get the user details (so we can then verify the user exists AND that the password is valid)
-    $sql = "SELECT 'id', 'username', 'password' FROM admin WHERE username = '$username'";
+    $sql = "SELECT 'id', 'username', 'password' FROM users WHERE username = '$username'";
+    $sql = "SELECT 'id', 'username', 'password', 'displayname' FROM users WHERE username = '$username'";
 
     // Request the data from the SQL server, process it AND count the number of rows.
     $result = mysqli_query($dbcon, $sql);
@@ -46,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check that the user only exists once in the SQL database AND that the password is matching.
     if ($row_count == 1 && password_verify($password, $row['password'])) {
         // This part we store some information in the PHP session information, so we can use it as a later time (e.g. the user ID)
+        $_SESSION['displayname'] = $row['displayname'];
         $_SESSION['userid'] = $row['id'];
         $_SESSION['username'] = $username;
         $_SESSION["loggedin"] = true;
