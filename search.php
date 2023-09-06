@@ -1,11 +1,11 @@
 <?php
+require_once 'header.php';
+
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == 1) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
-
-require_once 'header.php';
 
 if (isset($_GET['q'])) {
   $q = mysqli_real_escape_string($dbcon, $_GET['q']);

@@ -1,12 +1,13 @@
 <?php
+require_once 'header.php';
+require_once 'functions/security.php';
+
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == 1) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
 
-require_once 'header.php';
-require_once 'functions/security.php';
 ?>
 <h2 class="w3-container w3-teal w3-center">Admin Dashboard</h2>
 <div class="w3-container">

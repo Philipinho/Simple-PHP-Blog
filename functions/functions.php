@@ -1,4 +1,5 @@
 <?php
+
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == 1) {
     error_reporting(E_ALL);

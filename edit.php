@@ -1,12 +1,12 @@
 <?php
+require_once 'header.php';
+require_once 'functions/security.php';
+
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == 1) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
-
-require_once 'header.php';
-require_once 'functions/security.php';
 
 $id = (int)$_GET['id'];
 if ($id < 1) {
@@ -50,7 +50,8 @@ if (isset($_POST['upd'])) {
         <h4 class="w3-container"><a href="<?= $permalink ?>">Goto post</a> </h4>
 
         <form action="" method="POST" class="w3-container">
-            <input type="hidden" name="id" value="<?php $CurrentID = htmlentities($id, ENT_SUBSTITUTE); echo $CurrentID; ?>">
+            <input type="hidden" name="id" value="<?php $CurrentID = htmlentities($id, ENT_SUBSTITUTE);
+                                                    echo $CurrentID; ?>">
             <p>
                 <label>Title</label>
                 <input type="text" class="w3-input w3-border" name="title" value="<?php echo $title; ?>">

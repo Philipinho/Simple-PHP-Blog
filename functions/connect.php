@@ -1,7 +1,11 @@
 <?php
+require_once 'config.php';
+
 # Turn on debug mode, and show all errors.
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+if (DEBUG_MODE == 1) {
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+}
 
 ob_start();
 session_start();

@@ -1,15 +1,16 @@
 <?php
+require_once 'header.php';
+
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == 1) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
 
-require_once 'header.php';
-
-$CurrentUser = htmlentities(strip_tags($_POST['username']), ENT_SUBSTITUTE);
-
 echo '<h2 class="w3-container w3-teal">Login</h2>';
+
+if (isset($_POST['username'])) {$CurrentUser = htmlentities(strip_tags($_POST['username']), ENT_SUBSTITUTE);}
+
 
 if (isset($_POST['log'])) {
     $username = mysqli_real_escape_string($dbcon, $_POST['username']);
@@ -20,7 +21,6 @@ if (isset($_POST['log'])) {
     $result = mysqli_query($dbcon, $sql);
     $row = mysqli_fetch_assoc($result);
     $row_count = mysqli_num_rows($result);
-
 
     if ($row_count == 1 && password_verify($password, $row['password'])) {
         $_SESSION['username'] = $username;
@@ -33,9 +33,7 @@ if (isset($_POST['log'])) {
 
 <form action="" method="POST" class="w3-container w3-padding">
     <label>Username </label>
-    <input type="text" name="username" value="<?php if (isset($_POST['username'])) {
-                                                    echo $CurrentUser;
-                                                } ?>" class="w3-input w3-border">
+    <input type="text" name="username" value="<?php if (isset($_POST['username'])) { echo $CurrentUser; } ?>" class="w3-input w3-border">
     <label>Password</label>
     <input type="password" name="password" class="w3-input w3-border">
     <p><input type="submit" name="log" value="Login" class="w3-btn w3-teal"></p>

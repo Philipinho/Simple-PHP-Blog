@@ -1,12 +1,12 @@
 <?php
+require_once 'header.php';
+require_once 'functions/security.php';
+
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == 1) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
-
-require_once 'header.php';
-require_once 'functions/security.php';
 
 if (isset($_POST['submit'])) {
     $title = mysqli_real_escape_string($dbcon, $_POST['title']);

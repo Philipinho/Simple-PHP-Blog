@@ -1,13 +1,13 @@
 <?php
+require_once 'config.php';
+require_once 'functions/functions.php';
+require_once 'functions/connect.php';
+
 # Turn on debug mode, and show all errors.
 if (DEBUG_MODE == 1) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
-
-require_once 'config.php';
-require_once 'functions/functions.php';
-require_once 'functions/connect.php';
 
 if (!empty(SITE_ROOT)) {
     $url_path = "/" . SITE_ROOT . "/";
