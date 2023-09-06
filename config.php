@@ -8,5 +8,5 @@
     define('DB_CHARSET', 'utf8');       // What character set are we using
 
     /* Define some settings for the blog */
-    define('SITE_ROOT', ''); // If installed on a sub-folder, replace the empty constant with the folder's name
+    define('SITE_ROOT', ''); // If installed on a sub-folder. E.g. if installed to 'www.example.com/blog', enter 'blog' for SITE_ROOT
     define('PAGINATION', 10); // Pagination results per page
