@@ -1,7 +1,8 @@
 # Simple-PHP-Blog
-Simple blog system for personal development using procedural PHP and MySQLi. It allows you to create, edit, delete posts to get you started on your journey
+Simple blog system for personal development using procedural PHP and MySQLi. It allows you to create, edit, delete posts to get you started on your journey.  If you are building your own from scratch this will give the head start that you need.
 
 For educational purposes only.
+** Security is not guaranteed with this system, best efforts have been made to make it secure **
 
 Setup
 ===
@@ -35,7 +36,7 @@ location / {
 Using the Simple-PHP-Blog
 ===
 
-The system is quite easy to use, as there isnt much work required to do a simple blog. If you are building your own from scratch this will give the head start that you need.
+The system is quite easy to use, as there isnt much work required to do a simple blog.
 
 ## Default Admin Login
 Username: admin  
