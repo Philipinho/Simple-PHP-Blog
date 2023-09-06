@@ -5,7 +5,7 @@ require_once 'header.php';
 $login_error = false;
 
 # Turn on debug mode, and show all errors.
-if (DEBUG_MODE == 1) {
+if (DEBUG_MODE == true) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
