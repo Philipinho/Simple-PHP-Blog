@@ -13,7 +13,6 @@ if (DEBUG_MODE == 1) {
 <div class="w3-container">
     <p>Welcome <?php echo $_SESSION['displayname']; ?>,</p>
     <p><a href="new.php" class="w3-button w3-teal">Create new post</a></p>
-    <p><a href="generate_slugs.php" class="w3-button w3-teal">Generate slugs (SEO URLs)</a></p>
 
 </div>
 <h5 class="w3-center">Posts</h5>
