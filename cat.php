@@ -1,8 +1,13 @@
 <?php
-require_once 'connect.php';
 require_once 'header.php';
 
-$id = (INT)$_GET['id'];
+# Turn on debug mode, and show all errors.
+if (DEBUG_MODE == true) {
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+}
+
+$id = (int)$_GET['id'];
 if ($id < 1) {
     header("location: index.php");
 }

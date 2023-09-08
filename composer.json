@@ -1,0 +1,42 @@
+{
+    "name": "composer/composer",
+    "type": "library",
+    "description": "Composer helps you declare, manage and install dependencies of PHP projects. It ensures you have the right stack everywhere.",
+    "keywords": [
+    ],
+    "authors": [
+        {
+            "name": "Philipinho (Philip)",
+            "homepage": "https://github.com/Philipinho",
+            "role": "Developer"
+        },
+        {
+            "name": "7s9n (Hussein Sarea)",
+            "homepage": "https://github.com/7s9n",
+            "role": "Contributor"
+        },
+        {
+            "name": "ankheur (Pierrick Rancoeur)",
+            "homepage": "https://github.com/ankheur",
+            "role": "Contributor"
+        },
+        {
+            "name": "terzinnorbert",
+            "homepage": "https://github.com/terzinnorbert",
+            "role": "Contributor"
+        },
+        {
+            "name": "myckgoncalves (Myck Gonçalves)",
+            "homepage": "https://github.com/myckgoncalves",
+            "role": "Contributor"
+        },
+        {
+            "name": "rastating",
+            "homepage": "https://github.com/rastating",
+            "role": "Contributor"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5 || ^8.0"
+    }
+}
