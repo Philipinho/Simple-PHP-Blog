@@ -1,3 +1,3 @@
 <?php
-define('SITE_ROOT', ''); // If installed on a sub-folder, replace the empty constant with the folder's name
-define('PAGINATION', 10); // Pagination results per page
+const SITE_ROOT = ''; // Replace '' with the folder's name if installed on a sub-folder
+const PAGINATION = 10; // Results per page
